@@ -1,23 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Portfolio from '../views/Portfolio.vue';
+import Project from '../views/Project.vue';
+// import Studio from '../views/Studio.vue';
+// import Press from '../views/Press.vue';
+// import Contact from '../views/Contact.vue';
+// import BaseView from '../views/BaseView.vue';
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     name: 'home',
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/:page(portfolio)',
+    name: 'portfolio',
+    component: Portfolio
+  },
+  {
+    path: '/project',
+    name: 'project',
+    component: Project
+  },
+
+
 ]
 
 const router = new VueRouter({
@@ -25,5 +34,6 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 
 export default router
